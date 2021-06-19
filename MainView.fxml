@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.MainViewController">
+   <right>
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="Add" mnemonicParsing="false" onAction="#AddIsPressed" prefHeight="25.0" prefWidth="120.0" text="Add" />
+            <Button fx:id="Remove" mnemonicParsing="false" onAction="#removeIsPressed" prefWidth="120.0" text="Remove" />
+            <Button fx:id="Print" mnemonicParsing="false" onAction="#printIsPressed" prefWidth="120.0" text="Print" />
+         </children>
+         <padding>
+            <Insets top="20.0" />
+         </padding>
+         <BorderPane.margin>
+            <Insets right="15.0" />
+         </BorderPane.margin>
+      </VBox>
+   </right>
+   <top>
+      <VBox prefHeight="121.0" prefWidth="500.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Separator prefHeight="0.0" prefWidth="500.0" />
+            <HBox prefHeight="40.0" prefWidth="200.0">
+               <children>
+                  <FlowPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label text="First Name">
+                           <padding>
+                              <Insets left="65.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </FlowPane>
+                  <TextField fx:id="FirstName" maxWidth="500.0" prefHeight="25.0" prefWidth="275.0">
+                     <padding>
+                        <Insets right="10.0" />
+                     </padding>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="200.0">
+               <children>
+                  <FlowPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Last Name">
+                           <padding>
+                              <Insets left="65.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </FlowPane>
+                  <TextField fx:id="LastName" prefHeight="25.0" prefWidth="275.0">
+                     <padding>
+                        <Insets right="10.0" />
+                     </padding>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="200.0">
+               <children>
+                  <FlowPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Number of Credits">
+                           <padding>
+                              <Insets left="65.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </FlowPane>
+                  <TextField fx:id="Credits" prefHeight="25.0" prefWidth="275.0">
+                     <padding>
+                        <Insets right="10.0" />
+                     </padding>
+                  </TextField>
+               </children>
+            </HBox>
+            <Separator prefHeight="0.0" prefWidth="200.0" />
+         </children>
+         <padding>
+            <Insets top="20.0" />
+         </padding>
+         <BorderPane.margin>
+            <Insets top="10.0" />
+         </BorderPane.margin>
+      </VBox>
+   </top>
+   <left>
+      <HBox prefHeight="482.0" prefWidth="385.0" BorderPane.alignment="CENTER_LEFT">
+         <children>
+            <VBox prefHeight="486.0" prefWidth="116.0" spacing="10.0">
+               <children>
+                  <RadioButton fx:id="Instate" mnemonicParsing="false" onAction="#disableOptions" text="INSTATE">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="StudentType" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="Outstate" mnemonicParsing="false" onAction="#disableOptions" text="OUTSTATE" toggleGroup="$StudentType" />
+                  <RadioButton fx:id="International" mnemonicParsing="false" onAction="#disableOptions" prefHeight="0.0" prefWidth="111.0" text="INTERNATIONAL" toggleGroup="$StudentType" />
+               </children>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets left="30.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox layoutX="10.0" layoutY="10.0" prefHeight="486.0" prefWidth="120.0" spacing="10.0">
+               <children>
+                  <CheckBox fx:id="Funding" mnemonicParsing="false" text="Funding" />
+                  <CheckBox fx:id="TriState" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Tri-State Student" />
+                  <CheckBox fx:id="Exchange" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Exchange Student" />
+               </children>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+            </VBox>
+            <VBox layoutX="110.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <TextField fx:id="Funds" />
+               </children>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+            </VBox>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </HBox>
+   </left>
+   <bottom>
+      <Pane prefHeight="339.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextArea fx:id="Output" layoutX="19.0" layoutY="34.0" prefHeight="291.0" prefWidth="463.0" />
+            <Separator layoutY="4.0" prefHeight="0.0" prefWidth="500.0" />
+         </children>
+      </Pane>
+   </bottom>
+</BorderPane>
